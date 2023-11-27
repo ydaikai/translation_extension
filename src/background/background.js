@@ -9,8 +9,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 
         // 設定を取得する
         chrome.storage.sync.get(['apiKey', 'targetLanguage'], function(items) {
-            // let apiKey = items.apiKey; // OpenAIのAPIキー
-			let apiKey = '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';
+			let apiKey = items.apiKey;
             let targetLanguage = items.targetLanguage || 'ja'; // デフォルトの翻訳先言語
 
             let prompt = `Translate this into ${targetLanguage}: ${request.text}`;
